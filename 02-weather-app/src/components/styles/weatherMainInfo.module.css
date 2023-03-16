@@ -1,0 +1,51 @@
+.mainInfo {
+  background-color: white;
+  padding: 40px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: -9%;
+}
+
+.city {
+  font-size: 32px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.country {
+  font-size: 20px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.condition {
+  font-size: 24px;
+}
+
+.current {
+  font-size: 38px;
+  font-weight: bold;
+}
+
+iframe {
+  width: 80%;
+  margin: 0 10%;
+  height: 250px;
+}
+
+@media (max-width: 480px) {
+  .mainInfo {
+    margin-top: 0%;
+  }
+
+  iframe {
+    width: 114%;
+    margin-left: -7%;
+    height: auto;
+  }
+}
