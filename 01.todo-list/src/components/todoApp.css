@@ -65,3 +65,10 @@
   color: white;
   padding: 10px 20px;
 }
+
+@media (max-width: 480px) {
+  .todoContainer {
+    width: 90%;
+    margin: 5% auto;
+  }
+}
