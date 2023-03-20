@@ -6,21 +6,36 @@ export default function Todo({ item, onUpdate, onComplete, onDelete }) {
   const [isEdit, setIsEdit] = useState(false);
   const [value, setValue] = useState(item.title ?? "");
 
+  /**
+   * Actualiza el valor del input cada que cambie su estado.
+   * @param {*} e
+   */
   function handleChange(e) {
     setValue(e.target.value);
   }
 
+  /**
+   * Actualiza una tarea.
+   */
   function handleUpdate() {
     onUpdate(item.id, value);
     setIsEdit(false);
   }
 
+  /**
+   * Permite actualizar el estado de una tarea.
+   * @param {*} e
+   */
   function handleSubmit(e) {
     e.preventDefault();
     onUpdate(item.id, value);
     setIsEdit(false);
   }
 
+  /**
+   * Permite setear una tarea como completada.
+   * @param {*} e
+   */
   function handleCheckboxChange(e) {
     onComplete(item.id, e.target.checked);
   }

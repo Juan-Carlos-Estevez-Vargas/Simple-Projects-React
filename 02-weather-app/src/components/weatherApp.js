@@ -18,7 +18,7 @@ export default function WeatherApp() {
 
   /**
    * carga la data del clima de la ciudad a renderizar
-   * @param {*} city a obtener la data
+   * @param {string} city a obtener la data
    */
   async function loadInfo(city = "london") {
     console.log(
@@ -41,7 +41,7 @@ export default function WeatherApp() {
 
   /**
    * Actualiza la ciudad cada que el usuario ingrese una nueva
-   * @param {*} city ciudad a actualizar
+   * @param {string} city ciudad a actualizar
    */
   function handleOnChangeCity(city) {
     setWeather(null);

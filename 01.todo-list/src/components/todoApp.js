@@ -7,10 +7,18 @@ export default function TodoApp() {
   const [title, setTitle] = useState("");
   const [todos, setTodos] = useState([]);
 
+  /**
+   * Actualiza el valor de título de la página.
+   * @param {event} e
+   */
   function handleInputChange(e) {
     setTitle(e.target.value);
   }
 
+  /**
+   * Crea una nueva tarea con la fecha actual del sistema.
+   * @param {event} e
+   */
   function handleSubmit(e) {
     e.preventDefault();
     const newTodo = {
@@ -26,12 +34,21 @@ export default function TodoApp() {
     setTitle("");
   }
 
+  /**
+   * Elimina una tarea en específico.
+   * @param {string} id
+   */
   function handleDelete(id) {
     const tempTodos = todos.filter((item) => item.id !== id);
 
     setTodos([...tempTodos]);
   }
 
+  /**
+   * Actualiza una tarea.
+   * @param {string} id
+   * @param {string} value
+   */
   function handleUpdate(id, value) {
     const temp = [...todos];
     const item = temp.find((item) => item.id === id);
@@ -39,12 +56,16 @@ export default function TodoApp() {
     setTodos([...temp]);
   }
 
+  /**
+   * Actualiza el estado de una tarea entre completada y no
+   * completada.
+   * @param {string} id
+   * @param {*} status
+   */
   function handleCheckboxChange(id, status) {
     const temp = [...todos];
     const item = temp.find((item) => item.id === id);
     item.completed = status;
-
-    console.log("Holis");
     setTodos([...temp]);
   }
 

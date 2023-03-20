@@ -18,10 +18,19 @@ export function EmojiPicker(props, inputRef) {
     });
   }, []);
 
+  /**
+   * Actualiza el estado de open en true o false.
+   * Esto para mostrar el contenedor de emojis.
+   */
   function handleClickOpen() {
     setIsOpen(!isOpen);
   }
 
+  /**
+   * Actualiza el estado de los emojis, permite renderizar un emoji
+   * en específico cada que se busque por alguna palabra clave.
+   * @param {event} e
+   */
   function handleSearch(e) {
     const query = e.target.value.toLowerCase();
 
@@ -38,18 +47,11 @@ export function EmojiPicker(props, inputRef) {
     }
   }
 
-  // function EmojiPickerContainer() {
-  //   return (
-  //     <div>
-  //       <EmojiSearch onSearch={handleSearch} />
-  //       <div>
-  //         {emojiList.map((emoji) => (
-  //           <div key={emoji.symbol}>{emoji.symbol}</div>
-  //         ))}
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  /**
+   * Obtiene las coordenadas del cursor para insertar un emoji en dicha
+   * posición y matener el foco del input en dicha coordenada.
+   * @param {*} emoji
+   */
   function handleOnClickEmoji(emoji) {
     const cursorPosition = inputRef.current.selectionStart;
     const text = inputRef.current.value;
