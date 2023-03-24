@@ -10,7 +10,11 @@ export default function Item({ item }) {
       <div className={styles.itemInfoContainer}>
         <span className={styles.itemInfoTag}>Short URL:</span>
         <span>
-          <a href={`http://localhost:3000/u/${item.shortUrl}`} target="_blank">
+          <a
+            href={`http://localhost:3000/u/${item.shortUrl}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             http://localhost:3000/u/{item.shortUrl}
           </a>
         </span>
