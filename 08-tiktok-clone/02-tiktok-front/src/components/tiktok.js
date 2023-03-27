@@ -15,6 +15,9 @@ export default function Tiktok() {
     setUrl("http://localhost:4000/page/" + page);
   }, [page]);
 
+  /**
+   * Redirige al video siguiente.
+   */
   function nextVideo() {
     if (index + 2 === items.length) {
       // cargar mas videos
@@ -23,6 +26,9 @@ export default function Tiktok() {
     setIndex(index + 1);
   }
 
+  /**
+   * Redirige al video anterior.
+   */
   function prevVideo() {
     if (index > 0) {
       setIndex(index - 1);
@@ -50,6 +56,9 @@ export default function Tiktok() {
   );
 }
 
+/**
+ * Memoriza un item para que no se quede pensando la aplicación.
+ */
 const Videos = React.memo(({ items, index }) => {
   return (
     <>
