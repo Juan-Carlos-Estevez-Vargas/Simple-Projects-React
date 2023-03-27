@@ -1,5 +1,8 @@
 import { createContext, useContext, useState } from "react";
 
+/**
+ * Crea el contexto general de la aplicación.
+ */
 const AppContext = createContext({
   /* state */
   memory: null,
@@ -21,6 +24,11 @@ export default function CalculatorState({ children }) {
   const [isReset, setIsReset] = useState(true);
   const [isDecimal, setIsDecimal] = useState(false);
 
+  /**
+   * Agrega elementos de tipo número a la pantalla o punto
+   * decimal.
+   * @param {string} value
+   */
   function handleAddNumber(value) {
     if (isReset) {
       if (value === ".") {
@@ -46,6 +54,10 @@ export default function CalculatorState({ children }) {
     }
   }
 
+  /**
+   * Agrega una operación a la pantalla y obtiene el resultado.
+   * @param {*} op
+   */
   function handleAddOperation(op) {
     if (currentValue) {
       if (operation) {
@@ -60,6 +72,10 @@ export default function CalculatorState({ children }) {
     }
   }
 
+  /**
+   * Ejecuta una operación matemática según el tipo de operación
+   * seleccionada.
+   */
   function handleGetResult() {
     let result = 0;
 
@@ -91,6 +107,9 @@ export default function CalculatorState({ children }) {
     }
   }
 
+  /**
+   * Limpia la pantalla.
+   */
   function clean() {
     setCurrentValue(0);
     setOperation(null);
@@ -99,6 +118,9 @@ export default function CalculatorState({ children }) {
     setIsDecimal(false);
   }
 
+  /**
+   * Elimina un elemento de la pantalla.
+   */
   function deleteNumber() {
     const index = currentValue.toString().indexOf(".");
     if (index > 0) {
@@ -117,10 +139,16 @@ export default function CalculatorState({ children }) {
     }
   }
 
+  /**
+   * Cambia el signo de un valor o conjunto de valores.
+   */
   function changeSign() {
     setCurrentValue(currentValue * -1);
   }
 
+  /**
+   * Convierte el valor actual a flotante o punto decimal.
+   */
   function convertToFloat() {
     if (currentValue.toString().indexOf(".") > 0) {
     } else {
@@ -128,6 +156,10 @@ export default function CalculatorState({ children }) {
     }
   }
 
+  /**
+   * Ejecuta una acción según como sea seleccionada.
+   * @param {string} action
+   */
   function handleExecuteAction(action) {
     switch (action) {
       case "=":
