@@ -1,0 +1,15 @@
+.header-app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para pantallas de celular */
+@media (max-width: 576px) {
+  .header-app {
+    width: 100%;
+  }
+  .header-app h1 {
+    font-size: 1.2rem;
+  }
+}

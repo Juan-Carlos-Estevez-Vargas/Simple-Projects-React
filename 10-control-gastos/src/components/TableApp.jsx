@@ -12,6 +12,7 @@ const TableApp = ({ columns, data }) => {
             position: ["bottomCenter"],
             pageSizeOptions: [5, 10, 15],
             showQuickJumper: true,
+            showSizeChanger: true,
           }}
           footer={() => "Total: " + data.length}
         />
