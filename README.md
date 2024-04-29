@@ -15,6 +15,7 @@ Este repositorio contiene proyectos propios como algunos realizados en diferente
 7. [📠 Basic Calculator](https://github.com/Juan-Carlos-Estevez-Vargas/simple-projects-react/tree/master/07-basic-calculator)
 8. [🚀 Tiktok Effect](https://github.com/Juan-Carlos-Estevez-Vargas/simple-projects-react/tree/master/08-tiktok-clone)
 9. [📺 Small Movies Catalog](https://github.com/Juan-Carlos-Estevez-Vargas/Simple-Projects-React/tree/master/09-catalogo-peliculas)
+10. [💰 Expense Control](https://github.com/Juan-Carlos-Estevez-Vargas/Simple-Projects-React/tree/master/10-control-gastos)
 
 ## Pasos para ejecutar cada uno de los proyectos:
 - Clonar el proyecto en tu máquina local
