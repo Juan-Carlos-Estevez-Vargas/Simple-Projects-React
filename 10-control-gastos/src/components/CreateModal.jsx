@@ -1,7 +1,21 @@
 import { DatePicker, Form, Input, Modal } from "antd";
 import moment from "moment";
 import React from "react";
+import PropTypes from "prop-types";
 
+/**
+ * Renders a modal for creating or editing an expense record.
+ *
+ * @param {boolean} modalVisible - Flag to indicate if the modal is visible.
+ * @param {Function} setModalVisible - Function to set the visibility of the modal.
+ * @param {Function} handleAdd - Function to handle adding a new expense record.
+ * @param {Object} newExpense - The new expense record data.
+ * @param {Function} setNewExpense - Function to set the new expense record data.
+ * @param {Object} editingRecord - The expense record being edited.
+ * @param {Function} setEditingRecord - Function to set the editing expense record.
+ * @param {Function} handleUpdateRecord - Function to handle updating an expense record.
+ * @return {JSX.Element} The rendered modal for creating or editing an expense record.
+ */
 const CreateModal = ({
   modalVisible,
   setModalVisible,
@@ -31,10 +45,10 @@ const CreateModal = ({
                 : moment(newExpense?.date)
             }
             onChange={(date) =>
-              setEditingRecord
+              editingRecord
                 ? setEditingRecord({
                     ...editingRecord,
-                    date: date.format("YYYY-MM-DD"),
+                    date,
                   })
                 : setNewExpense({ ...newExpense, date })
             }
@@ -67,6 +81,17 @@ const CreateModal = ({
       </Form>
     </Modal>
   );
+};
+
+CreateModal.propTypes = {
+  modalVisible: PropTypes.bool.isRequired,
+  setModalVisible: PropTypes.func.isRequired,
+  handleAdd: PropTypes.func.isRequired,
+  newExpense: PropTypes.object.isRequired,
+  setNewExpense: PropTypes.func.isRequired,
+  editingRecord: PropTypes.object,
+  setEditingRecord: PropTypes.func,
+  handleUpdateRecord: PropTypes.func.isRequired,
 };
 
 export default CreateModal;

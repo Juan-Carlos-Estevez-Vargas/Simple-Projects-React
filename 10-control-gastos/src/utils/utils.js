@@ -83,26 +83,41 @@ export const dataApp = [
   },
 ];
 
+/**
+ * Generates an array of column objects for a table component. Each column object contains
+ * properties such as title, dataIndex, key, render, and width. The render function is used to
+ * render custom components for each cell in the column. The handleDelete and handleUpdate
+ * functions are passed as parameters and are used to handle delete and update actions for each
+ * row in the table.
+ *
+ * @param {function} handleDelete - A function that handles the delete action for a row. It
+ * takes the key of the row as a parameter.
+ * @param {function} handleUpdate - A function that handles the update action for a row. It
+ * takes the key of the row as a parameter.
+ * @return {Array} An array of column objects.
+ */
 export const generateColumns = (handleDelete, handleUpdate) => {
   return [
     {
       title: "Fecha",
       dataIndex: "date",
       key: "date",
-      render: (date) => <DatePicker value={moment(date)} disabled />,
+      render: (date) => <DatePicker value={moment(date)} editable={false} />,
       width: 150,
     },
     {
       title: "Concepto",
       dataIndex: "concept",
       key: "concept",
-      render: (concept) => <Input value={concept} disabled />,
+      render: (concept) => <Input value={concept} editable={false} />,
     },
     {
       title: "Monto",
       dataIndex: "amount",
       key: "amount",
-      render: (amount) => <Input value={amount} type="number" disabled />,
+      render: (amount) => (
+        <Input value={amount} type="number" editable={false} />
+      ),
     },
     {
       title: "Acciones",
